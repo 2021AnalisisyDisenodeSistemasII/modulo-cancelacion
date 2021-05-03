@@ -1,0 +1,38 @@
+[
+	{
+		"tipo": "STRING",
+		"id_cliente": "STRING",
+		"nombre_titular": "STRING",
+		"ocupacion": "STRING",
+		"direccion": "STRING",
+		"nombre_compañia": "STRING",
+		"nit": "STRING",
+		"sector_comercial": "STRING",
+		"cuentas": [
+			{
+				"tipo": "STRING",
+				"saldo": int,
+				"isActive": bool,
+				"sucursal_padre": "STRING"
+			}
+		]
+	}
+	{
+		"tipo": "natural, empresa",
+		"id_cliente": "1000025",
+		"nombre_titular": "Francisco Jaramillo Aguialar",
+		"ocupacion": "Carpintero",
+		"direccion": "Prado CRA 12 #33-55",
+		"nombre_compañia": "Maderos y muebles S.A", null,
+		"nit": "25503032", null,
+		"sector_comercial": "Compra y venta", null,
+		"cuentas": [
+			{
+				"tipo": "corrientes, ahorros"
+				"saldo": 25000000,
+				"isActive": true, false,
+				"sucursal_padre": "Sucursal Parque Itagui"
+			}
+		]
+	}
+]
