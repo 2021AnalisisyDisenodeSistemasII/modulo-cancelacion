@@ -16,8 +16,12 @@ public class StarBank_Cancelation extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         
+        //Creacion del servidor de la app
+        BankServer Servidor = new BankServer();
+        
+        //Le damos al boton el nombre de un cliente
         //Creacion del boton
-        Button btn = new Button("Soy la ventana principal y de momento estan construyendo la estructura interna de la aplicacion");
+        Button btn = new Button(Servidor.getClientes()[0].getNombre_titular());
         
         //Creacion de StackPane, puede cambiar a futuro
         StackPane root = new StackPane();

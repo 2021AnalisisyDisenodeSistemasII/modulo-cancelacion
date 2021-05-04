@@ -2,16 +2,23 @@ package starbank_cancelation;
 
 public class Cuenta {
 
+    private String id_cuenta;
+    private String id_cliente;
     private String tipo;
     private int saldo;
     private Boolean isActive;
     private String sucursal_padre;
+    private String[] historial;
 
-    public Cuenta(String tipo, int saldo, Boolean isActive, String sucursal_padre) {
+    public Cuenta(String id_cuenta, String id_cliente, String tipo, int saldo, Boolean isActive, String sucursal_padre) {
+        this.id_cuenta = id_cuenta;
+        this.id_cliente = id_cliente;
         this.tipo = tipo;
         this.saldo = saldo;
         this.isActive = isActive;
         this.sucursal_padre = sucursal_padre;
+        //pendiente
+        this.historial = null;
     }
 
     public String getTipo() {
@@ -49,6 +56,7 @@ public class Cuenta {
     @Override
     public String toString() {
         
+        //Metodo incompleto
         return null;
         
     }
