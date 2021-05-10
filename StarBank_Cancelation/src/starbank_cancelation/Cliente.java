@@ -19,11 +19,7 @@ public class Cliente {
     private Cuenta[] cuentas;
 
     public Cliente(String tipo, String id_cliente, String nombre_titular, String ocupacion, String direccion) {
-        
-        //LEEME AUNQUE CREO UN CLIENTE USANDO JSON NO SE EJECUTA EL CONSTRUCTOR
-        //ESTE PRINT ES LA PRUEBA DE ELLO
-        System.out.println("Estoy ejecutando constructor !");
-        
+                
         this.tipo = tipo;
         this.id_cliente = id_cliente;
         this.nombre_titular = nombre_titular;
@@ -32,14 +28,12 @@ public class Cliente {
         this.nombre_compañia = null;
         this.nit = null;
         this.sector_comercial = null;
-        //cargarCuentas();
         
     }
     
     public void cargarCuentas() {
         
         //Metodo incompleto por el momento
-        
         String json = "";
         
         try (BufferedReader br = new BufferedReader(new FileReader("Cuentas StarBank/"+this.nombre_titular+" - "+this.id_cliente+"/account-1.json"))){
@@ -56,6 +50,7 @@ public class Cliente {
         Gson gson = new Gson();
         
         Cuenta[] cuentas = gson.fromJson(json, Cuenta[].class);
+        
         this.cuentas = cuentas;
         
     }

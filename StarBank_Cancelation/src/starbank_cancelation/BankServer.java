@@ -36,8 +36,18 @@ public class BankServer {
         Cliente[] clientes = gson.fromJson(json, Cliente[].class);
         this.clientes = clientes;
         
+        for (Cliente cliente : this.clientes){
+            cliente.cargarCuentas();
+        }
+        
         System.out.println("Ya lei las cuentas !");
+        
+        //AQUI PUEDEN VER QUE LEER LA UNICA CUENTA QUE TENEMOS EN JSON YA FUNCIONA !
+        
         System.out.println(this.clientes[0].getNombre_titular());
+        System.out.println(this.clientes[0].getId_cliente());
+        System.out.println(this.clientes[0].getNombre_titular() + " - " + this.clientes[0].getId_cliente());
+        System.out.println(this.clientes[0].getCuentas()[0].getSucursal_padre());
         //System.out.println(this.clientes[0].getCuentas()[0].getSucursal_padre());
         
     }
