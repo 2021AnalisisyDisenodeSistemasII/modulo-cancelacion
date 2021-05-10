@@ -4,7 +4,7 @@
 		"id_client": "1000025",
 		"balance": 250000,
 		"isActive": true,
-		"id_suc": //"Sucursal Parque Itagui",
+		"id_suc": "Sucursal Parque Itagui",
 		"transactions": []
 	}
 ]
