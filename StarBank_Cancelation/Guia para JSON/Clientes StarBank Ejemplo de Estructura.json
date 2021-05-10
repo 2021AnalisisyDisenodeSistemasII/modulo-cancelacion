@@ -1,0 +1,44 @@
+[
+	//EJEMPLO DE ESTRUCTURAS PARA CLIENTES NATURALES
+
+	{
+		//Nombre del dueño de la cuenta
+		"legal_owner": "Francisco Jaramillo Aguilar",
+		//Direccion de residencia del dueño de la cuenta
+		"address": "Prado CRA 12 #33-55",
+		//Telefono del dueño de la cuenta
+		"phone": "3009635442",
+		//El cliente tiene alguna cuenta activa en el banco
+		"isActive": true
+		
+		//Cedula del titular de la cuenta
+		"id": "1000025",
+		//Ocupacion del dueño de la cuenta
+		"ocupacion": "Carpintero",
+	}
+	
+	//EJEMPLO DE ESTRUCTURAS PARA CLIENTES EMPRESAS
+	
+	{
+		//Nombre de la empresa que es dueña de la cuenta
+		"legal_owner": "Maderos S.A.",
+		//Direccion de la empresa
+		"address": "Medellin CRA 36 #41-55",
+		//Telefono de la empresa
+		"phone": "3112553497",
+		//La cuenta esta suscrita si este cliente tiene
+		//una de sus cuentas activas
+		"isActive": true,
+		
+		//Identificador unico de la empresa
+		"nit": "2500256464",
+		//Nombre del representante legal de la cuenta
+		"legal_rep_name": "Francisco Jaramillo Aguilar",
+		//Ocupacion del representante dentro de la empresa
+		"rep_occupation": "Dueño de la carpinteria",
+		//Sector comercial al que pertenece la empresa
+		"cluster": "Mano factura",
+		//Identificador del representante legal
+		"id_rep": "1000025"
+	}
+]
