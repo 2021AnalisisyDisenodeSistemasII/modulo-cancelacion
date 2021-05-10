@@ -1,5 +1,20 @@
+ATENCION , se llego al acuerdo de usar esta estructura para los archivos JSON junto con el monitor
+Este ejmplo es especifico para los clientes
+
+-Los clientes naturales y las empresas se manejaran en diferentes archivos JSON
+
+-Para ingresar a las cuentas de un cliente natural se usara su "id" como etiqueta
+-Para ingresar a las cuentas de una empresa se usara su "nit" como etiqueta
+
+Este archivo es solo un ejemplo de ambas cuentas acompañado de comentarios
+
+el nombre de los campos debe ser igual en todos los json
+
+En este ejemplo de git podemos ver como dentro de la carpeta "Cuentas StarBank" esta la carpeta 1000025
+que incluye las cuentas del cliente natural con este id
+
 [
-	//EJEMPLO DE ESTRUCTURAS PARA CLIENTES NATURALES
+	EJEMPLO DE ESTRUCTURAS PARA CLIENTES NATURALES
 
 	{
 		//Nombre del dueño de la cuenta
