@@ -1,0 +1,10 @@
+[
+	{
+		"id_account": "99900025",
+		"id_client": "1000025",
+		"balance": 25000000,
+		"isActive": true,
+		"id_suc": "Sucursal Parque Itagui",
+		"transactions": []
+	}
+]
