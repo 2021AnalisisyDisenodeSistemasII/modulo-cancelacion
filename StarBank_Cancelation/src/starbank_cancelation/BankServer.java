@@ -8,7 +8,11 @@ import java.io.IOException;
 
 public class BankServer {
     
-    private Cliente[] clientes;
+    //private Cliente[] clientes;
+    private Cliente_Natural[] clientes_naturales;
+    
+    //hay que implementar esta clase
+    //private Cliente_Empresa[] clientes_empresas;
     
     public BankServer(){
         
@@ -20,7 +24,7 @@ public class BankServer {
         
         String json = "";
         
-        try (BufferedReader br = new BufferedReader(new FileReader("Clientes.json"))){
+        try (BufferedReader br = new BufferedReader(new FileReader("Clientes natural.json"))){
             String line;
             while ((line = br.readLine()) != null) {
                 json+= line;
@@ -33,34 +37,32 @@ public class BankServer {
         
         Gson gson = new Gson();
         
-        Cliente[] clientes = gson.fromJson(json, Cliente[].class);
-        this.clientes = clientes;
+        Cliente_Natural[] clientes_naturales = gson.fromJson(json, Cliente_Natural[].class);
+        this.clientes_naturales = clientes_naturales;
         
-        for (Cliente cliente : this.clientes){
-            cliente.cargarCuentas();
+        int i = 0;
+        for (Cliente_Natural cliente_Natural : this.clientes_naturales){
+            this.clientes_naturales[i].cargarCuentas();
+            i++;
         }
         
-        System.out.println("Ya lei las cuentas !");
+        //Esto simplemente es una flag que uso para saber hasta donde esta funcionando bien
+        //System.out.println("Ya lei los clientes !");
         
         //AQUI PUEDEN VER QUE LEER LA UNICA CUENTA QUE TENEMOS EN JSON YA FUNCIONA !
         
-        System.out.println(this.clientes[0].getNombre_titular());
-        System.out.println(this.clientes[0].getId_cliente());
-        System.out.println(this.clientes[0].getNombre_titular() + " - " + this.clientes[0].getId_cliente());
-        System.out.println(this.clientes[0].getCuentas()[0].getSucursal_padre());
-        //System.out.println(this.clientes[0].getCuentas()[0].getSucursal_padre());
+        System.out.println(this.clientes_naturales[0].getLegal_owner());
+        System.out.println(this.clientes_naturales[0].getId());
+        System.out.println(this.clientes_naturales[0].getCuentas_ahorros()[0].getBalance());
         
     }
 
-    public Cliente[] getClientes() {
-        return clientes;
+    public Cliente_Natural[] getClientes_naturales() {
+        return clientes_naturales;
     }
 
-    public void setClientes(Cliente[] clientes) {
-        this.clientes = clientes;
+    public void setClientes(Cliente_Natural[] clientes_naturales) {
+        this.clientes_naturales = clientes_naturales;
     }
-    
-    
-    
     
 }

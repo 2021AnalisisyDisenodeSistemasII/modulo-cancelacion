@@ -46,7 +46,8 @@ public class StarBank_Cancelation extends Application{
         //Añadir Escena a Stage
         stage.setScene(scene);
         stage.setTitle("StarBank_Cancelaciones");
-        stage.show(); 
+        stage.show();
+        
     }
     
     @Override
