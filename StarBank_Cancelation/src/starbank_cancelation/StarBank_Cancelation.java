@@ -15,6 +15,8 @@ public class StarBank_Cancelation extends Application{
     @Override
     public void init(){
         
+        System.out.println(Banco.getCliente("11485730"));
+        
     }
     
     @Override
@@ -38,6 +40,7 @@ public class StarBank_Cancelation extends Application{
         Scene scene = new Scene(root, 1280, 720);
         Fin de condigo FX a mano */
 
+        
         //Codigo para añadir la ventana desde FXML SceneBuilder
         Parent root = FXMLLoader.load(getClass().getResource("InsideAccountScreen.fxml"));
         
@@ -47,6 +50,8 @@ public class StarBank_Cancelation extends Application{
         stage.setScene(scene);
         stage.setTitle("StarBank_Cancelaciones");
         stage.show();
+        
+        stage.close();
         
     }
     

@@ -1,18 +1,16 @@
 package starbank_cancelation;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class BankServer {
     
-    //private Cliente[] clientes;
-    private Cliente_Natural[] clientes_naturales;
-    
-    //hay que implementar esta clase
-    //private Cliente_Empresa[] clientes_empresas;
+    private HashMap diccionario_clientes;
     
     public BankServer(){
         
@@ -24,7 +22,7 @@ public class BankServer {
         
         String json = "";
         
-        try (BufferedReader br = new BufferedReader(new FileReader("Clientes natural.json"))){
+        try (BufferedReader br = new BufferedReader(new FileReader("JSON/natural_clients.json"))){
             String line;
             while ((line = br.readLine()) != null) {
                 json+= line;
@@ -35,34 +33,21 @@ public class BankServer {
             System.out.println(ex.getMessage());
         }
         
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         
-        Cliente_Natural[] clientes_naturales = gson.fromJson(json, Cliente_Natural[].class);
-        this.clientes_naturales = clientes_naturales;
-        
-        int i = 0;
-        for (Cliente_Natural cliente_Natural : this.clientes_naturales){
-            this.clientes_naturales[i].cargarCuentas();
-            i++;
-        }
-        
-        //Esto simplemente es una flag que uso para saber hasta donde esta funcionando bien
-        //System.out.println("Ya lei los clientes !");
-        
-        //AQUI PUEDEN VER QUE LEER LA UNICA CUENTA QUE TENEMOS EN JSON YA FUNCIONA !
-        
-        System.out.println(this.clientes_naturales[0].getLegal_owner());
-        System.out.println(this.clientes_naturales[0].getId());
-        System.out.println(this.clientes_naturales[0].getCuentas_ahorros()[0].getBalance());
+        this.diccionario_clientes = gson.fromJson(json, HashMap.class);
         
     }
-
-    public Cliente_Natural[] getClientes_naturales() {
-        return clientes_naturales;
-    }
-
-    public void setClientes(Cliente_Natural[] clientes_naturales) {
-        this.clientes_naturales = clientes_naturales;
+    
+    public Natural_Client getCliente(String client_id){
+        
+        String auxiliar = this.diccionario_clientes.get(client_id).toString();
+        
+        Class_Generator generator = new Class_Generator();
+        
+        Natural_Client cliente = generator.genClient(client_id, auxiliar);
+        
+        return cliente;
     }
     
 }
