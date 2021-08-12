@@ -1,0 +1,15 @@
+[
+	{
+		"id_cuenta": "99900025",
+		"id_cliente": "1000025",
+		"tipo": "ahorros",
+		"saldo": 25000000,
+		"isActive": true,
+		"sucursal_padre": "Sucursal Parque Itagui",
+		"historial": [
+			"Se abrio la cuenta en - Sucursal Parque Itagui",
+			"Se consignaron 20000000 - cajero 25000000142",
+			"Se consignaron 5000000 - cajero XXXXXXXX"
+		]
+	}
+]
