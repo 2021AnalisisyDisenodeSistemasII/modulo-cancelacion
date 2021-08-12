@@ -1,14 +1,16 @@
 package starbank_cancelation;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class BankServer {
     
-    private Cliente[] clientes;
+    private HashMap diccionario_clientes;
     
     public BankServer(){
         
@@ -20,7 +22,7 @@ public class BankServer {
         
         String json = "";
         
-        try (BufferedReader br = new BufferedReader(new FileReader("Clientes.json"))){
+        try (BufferedReader br = new BufferedReader(new FileReader("JSON/natural_clients.json"))){
             String line;
             while ((line = br.readLine()) != null) {
                 json+= line;
@@ -31,36 +33,21 @@ public class BankServer {
             System.out.println(ex.getMessage());
         }
         
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         
-        Cliente[] clientes = gson.fromJson(json, Cliente[].class);
-        this.clientes = clientes;
-        
-        for (Cliente cliente : this.clientes){
-            cliente.cargarCuentas();
-        }
-        
-        System.out.println("Ya lei las cuentas !");
-        
-        //AQUI PUEDEN VER QUE LEER LA UNICA CUENTA QUE TENEMOS EN JSON YA FUNCIONA !
-        
-        System.out.println(this.clientes[0].getNombre_titular());
-        System.out.println(this.clientes[0].getId_cliente());
-        System.out.println(this.clientes[0].getNombre_titular() + " - " + this.clientes[0].getId_cliente());
-        System.out.println(this.clientes[0].getCuentas()[0].getSucursal_padre());
-        //System.out.println(this.clientes[0].getCuentas()[0].getSucursal_padre());
+        this.diccionario_clientes = gson.fromJson(json, HashMap.class);
         
     }
-
-    public Cliente[] getClientes() {
-        return clientes;
+    
+    public Natural_Client getCliente(String client_id){
+        
+        String auxiliar = this.diccionario_clientes.get(client_id).toString();
+        
+        Class_Generator generator = new Class_Generator();
+        
+        Natural_Client cliente = generator.genClient(client_id, auxiliar);
+        
+        return cliente;
     }
-
-    public void setClientes(Cliente[] clientes) {
-        this.clientes = clientes;
-    }
-    
-    
-    
     
 }
