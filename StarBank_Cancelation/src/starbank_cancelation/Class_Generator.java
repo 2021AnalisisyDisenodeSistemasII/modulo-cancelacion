@@ -1,7 +1,9 @@
 package starbank_cancelation;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.text.SimpleDateFormat;  
 
 public class Class_Generator {
 
@@ -74,6 +76,76 @@ public class Class_Generator {
         cliente.setAccounts(accounts);
         
         return cliente;
+    }
+    
+    public Saving_Account genSavingAccount(String account_id, String data) throws ParseException{
+        
+        Saving_Account cuenta = new Saving_Account();
+        
+        data = data.replace("{", "");
+        data = data.replace("}", "");
+        data = data.replace("[", "");
+        data = data.replace("]", "");
+        
+        String[] dataArray;
+        dataArray = data.split(",");
+        
+        String[] transactions;
+        List<String> lista = new ArrayList<>();
+        
+        int i = 0;
+        
+        for(String aux : dataArray){
+            
+            if (aux.contains("isActive")){
+                String[] auxArray;
+                auxArray = aux.split("=");
+                
+                cuenta.setIsActive(Boolean.parseBoolean(auxArray[1]));
+            }
+            
+            if (aux.contains("client_id")){
+                String[] auxArray;
+                auxArray = aux.split("=");
+                
+                cuenta.setClient_id(auxArray[1]);
+                
+            }
+            
+            if (aux.contains("balance")){
+                String[] auxArray;
+                auxArray = aux.split("=");
+                
+                cuenta.setBalance(Float.parseFloat(auxArray[1]));
+                
+            }
+            
+            if (aux.contains("sucursal_id")){
+                String[] auxArray;
+                auxArray = aux.split("=");
+                
+                cuenta.setSuc_id(auxArray[1]);
+                
+            }
+            
+            //Aqui debe implementarse leer transaciones
+            //Para la siguiente
+            
+            if (aux.contains("creation_date")){
+                String[] auxArray;
+                auxArray = aux.split("=");
+                
+                cuenta.setCreation_date(new SimpleDateFormat("dd-MM-yyyy").parse(auxArray[1]));
+                
+            }
+        }
+        
+        cuenta.setAccount_id(account_id);
+        
+        String[] provicional = new String[0];
+        cuenta.setTransactions(provicional);
+        
+        return cuenta;
     }
     
 }
