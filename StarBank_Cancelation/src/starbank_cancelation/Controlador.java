@@ -38,7 +38,6 @@ public class Controlador implements Initializable{
         System.out.println(textFieldValidar.getText());
         
         Natural_Client cliente = banco.getCliente_Natural(textFieldValidar.getText());
-        System.out.println("Ha ingresado correctamente");
         
         label_ID.setText(cliente.getClient_id());
         label_Nombre.setText(cliente.getClient_name());

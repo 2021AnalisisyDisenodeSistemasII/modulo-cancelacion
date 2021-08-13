@@ -9,25 +9,25 @@ import javafx.stage.Stage;
 
 public class StarBank_Cancelation extends Application{
     
-    private final BankServer Banco = new BankServer();
+//    private final BankServer Banco = new BankServer();
     
     @Override
     public void init() throws ParseException{
-        
-        System.out.println(Banco.getCliente_Natural("11485730"));
-        //System.out.println(Banco.getCuenta_Ahorros("442ba14f27fe0ccb"));
-    
-        for(String aux : Banco.getCliente_Natural("11485730").getAccounts()){
-            
-            //cuentas
-            //c6db74aabf5bec1c
-            //970d95326547af75
-            //652fe57e95f81fce
-            if (Banco.isSaving_Account(aux)){
-                System.out.println(Banco.getCuenta_Ahorros(aux));
-            }
-            
-        }
+
+//        System.out.println(Banco.getCliente_Natural("11485730"));
+//        //System.out.println(Banco.getCuenta_Ahorros("442ba14f27fe0ccb"));
+//    
+//        for(String aux : Banco.getCliente_Natural("11485730").getAccounts()){
+//            
+//            //cuentas
+//            //c6db74aabf5bec1c
+//            //970d95326547af75
+//            //652fe57e95f81fce
+//            if (Banco.isSaving_Account(aux)){
+//                System.out.println(Banco.getCuenta_Ahorros(aux));
+//            }
+//            
+//        }
         
     }
     

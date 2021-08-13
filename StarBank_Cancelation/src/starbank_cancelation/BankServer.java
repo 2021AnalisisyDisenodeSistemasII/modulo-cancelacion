@@ -24,6 +24,8 @@ public class BankServer {
         cargarCuentas_Ahorros();
         cargarCuentas_Corriente();
         
+        System.out.println(diccionario_clientes_naturales.get("11485730"));
+        
     }
     
     private void cargarClientes_Naturales(){
