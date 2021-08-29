@@ -51,24 +51,24 @@ public class Controlador implements Initializable{
         
         for(String aux : cliente.getAccounts()){
             
-            if (banco.isSaving_Account(aux)){
+            if (banco.isSaving_Account(aux) || banco.isCurrent_Account(aux)){
                 Label label_account_id = new Label();
-                label_account_id.setText("Cuenta ID: " + banco.getCuenta_Ahorros(aux).getAccount_id());
+                label_account_id.setText("Cuenta ID: " + banco.getCuenta(aux).getAccount_id());
                 
                 Label label_balance = new Label();
-                label_balance.setText("Saldo: " + banco.getCuenta_Ahorros(aux).getBalance().toString());
+                label_balance.setText("Saldo: " + banco.getCuenta(aux).getBalance().toString());
                 
                 Label label_isActive = new Label();
-                label_isActive.setText("Estado de la cuenta: " + banco.getCuenta_Ahorros(aux).getIsActive().toString());
+                label_isActive.setText("Estado de la cuenta: " + banco.getCuenta(aux).getIsActive().toString());
                 
                 Label label_suc_id = new Label();
-                label_suc_id.setText("Sucursal origen: " + banco.getCuenta_Ahorros(aux).getSuc_id());
+                label_suc_id.setText("Sucursal origen: " + banco.getCuenta(aux).getSuc_id());
                 
                 Label label_transactions = new Label();
-                label_transactions.setText("Historial de transaciones: " + Arrays.toString(banco.getCuenta_Ahorros(aux).getTransactions()));
+                label_transactions.setText("Historial de transaciones: " + Arrays.toString(banco.getCuenta(aux).getTransactions()));
                 
                 Label label_creation_date = new Label();
-                label_transactions.setText("Fecha de creacion: " + banco.getCuenta_Ahorros(aux).getCreation_date().toString());
+                label_transactions.setText("Fecha de creacion: " + banco.getCuenta(aux).getCreation_date().toString());
                 
                 Label label_separacion = new Label();
                 label_separacion.setText("//");

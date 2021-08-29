@@ -100,17 +100,32 @@ public class BankServer {
         return cliente;
     }
     
-    public Saving_Account getCuenta_Ahorros(String account_id) throws ParseException{
+    public Account getCuenta(String account_id) throws ParseException{
         
-        String auxiliar = this.diccionario_cuentas_ahorros.get(account_id).toString();
+        String auxiliar;
         Class_Generator generator = new Class_Generator();
-        Saving_Account cuenta = generator.genSavingAccount(account_id, auxiliar);
+        Account cuenta;
         
-        return cuenta;
+        if (isSaving_Account(account_id)){
+            auxiliar = this.diccionario_cuentas_ahorros.get(account_id).toString();
+            cuenta = generator.genAccount(account_id, auxiliar);
+            return cuenta;
+        }
+        else if (isCurrent_Account(account_id)){
+            auxiliar = this.diccionario_cuentas_corriente.get(account_id).toString();
+            cuenta = generator.genAccount(account_id, auxiliar);
+            return cuenta;
+        }
+        
+        return null;
     }
     
     public boolean isSaving_Account(String account_id) {
         return this.diccionario_cuentas_ahorros.containsKey(account_id);
+    }
+    
+    public boolean isCurrent_Account(String account_id) {
+        return this.diccionario_cuentas_corriente.containsKey(account_id);
     }
     
 }

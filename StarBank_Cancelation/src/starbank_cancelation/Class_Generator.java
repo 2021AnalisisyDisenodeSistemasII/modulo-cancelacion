@@ -78,7 +78,7 @@ public class Class_Generator {
         return cliente;
     }
     
-    public Saving_Account genSavingAccount(String account_id, String data) throws ParseException{
+    public Saving_Account genAccount(String account_id, String data) throws ParseException{
         
         Saving_Account cuenta = new Saving_Account();
         
@@ -147,5 +147,5 @@ public class Class_Generator {
         
         return cuenta;
     }
-    
+
 }
