@@ -12,8 +12,7 @@ import java.util.HashMap;
 public class BankServer {
     
     private HashMap diccionario_clientes_naturales;
-    //hay que implementar
-    //private HashMap diccionario_clientes_empresa;
+    private HashMap diccionario_clientes_empresa;
     
     private HashMap diccionario_cuentas_ahorros;
     private HashMap diccionario_cuentas_corriente;
@@ -21,6 +20,7 @@ public class BankServer {
     public BankServer(){
         
         cargarClientes_Naturales();
+        cargarClientes_Empresa();
         cargarCuentas_Ahorros();
         cargarCuentas_Corriente();
         
@@ -46,6 +46,27 @@ public class BankServer {
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         
         this.diccionario_clientes_naturales = gson.fromJson(json, HashMap.class);
+        
+    }
+    
+    private void cargarClientes_Empresa(){
+        
+        String json = "";
+        
+        try (BufferedReader br = new BufferedReader(new FileReader("JSON/company_clients.json"))){
+            String line;
+            while ((line = br.readLine()) != null) {
+                json+= line;
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+        
+        this.diccionario_clientes_empresa = gson.fromJson(json, HashMap.class);
         
     }
     
@@ -95,7 +116,16 @@ public class BankServer {
         
         String auxiliar = this.diccionario_clientes_naturales.get(client_id).toString();
         Class_Generator generator = new Class_Generator();
-        Natural_Client cliente = generator.genClient(client_id, auxiliar);
+        Natural_Client cliente = generator.genNaturalClient(client_id, auxiliar);
+        
+        return cliente;
+    }
+    
+    public Company_Client getCliente_Empresa(String nit){
+        
+        String auxiliar = this.diccionario_clientes_empresa.get(nit).toString();
+        Class_Generator generator = new Class_Generator();
+        Company_Client cliente = generator.genCompanyClient(nit, auxiliar);
         
         return cliente;
     }
@@ -111,7 +141,7 @@ public class BankServer {
             cuenta = generator.genAccount(account_id, auxiliar);
             return cuenta;
         }
-        else if (isCurrent_Account(account_id)){
+        else if (isOrdinary_Account(account_id)){
             auxiliar = this.diccionario_cuentas_corriente.get(account_id).toString();
             cuenta = generator.genAccount(account_id, auxiliar);
             return cuenta;
@@ -120,11 +150,19 @@ public class BankServer {
         return null;
     }
     
+    public boolean isNatural_Client(String client_id){
+        return this.diccionario_clientes_naturales.containsKey(client_id);
+    }
+    
+    public boolean isCompany_Client(String nit){
+        return this.diccionario_clientes_empresa.containsKey(nit);
+    }
+    
     public boolean isSaving_Account(String account_id) {
         return this.diccionario_cuentas_ahorros.containsKey(account_id);
     }
     
-    public boolean isCurrent_Account(String account_id) {
+    public boolean isOrdinary_Account(String account_id) {
         return this.diccionario_cuentas_corriente.containsKey(account_id);
     }
     
