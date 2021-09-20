@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 
-public class BankServer {
+public class Base_De_Datos {
     
     private HashMap diccionario_clientes_naturales;
     private HashMap diccionario_clientes_empresa;
@@ -17,14 +17,12 @@ public class BankServer {
     private HashMap diccionario_cuentas_ahorros;
     private HashMap diccionario_cuentas_corriente;
     
-    public BankServer(){
+    public Base_De_Datos(){
         
         cargarClientes_Naturales();
         cargarClientes_Empresa();
         cargarCuentas_Ahorros();
         cargarCuentas_Corriente();
-        
-        System.out.println(diccionario_clientes_naturales.get("11485730"));
         
     }
     
@@ -129,22 +127,18 @@ public class BankServer {
         
         return cliente;
     }
-    
-    public Account getCuenta(String account_id) throws ParseException{
+
+    public String get_Info_Cuenta(String account_id) throws ParseException{
         
-        String auxiliar;
-        Class_Generator generator = new Class_Generator();
-        Account cuenta;
+        String account_data;
         
         if (isSaving_Account(account_id)){
-            auxiliar = this.diccionario_cuentas_ahorros.get(account_id).toString();
-            cuenta = generator.genAccount(account_id, auxiliar);
-            return cuenta;
+            account_data = this.diccionario_cuentas_ahorros.get(account_id).toString();
+            return account_data;
         }
-        else if (isOrdinary_Account(account_id)){
-            auxiliar = this.diccionario_cuentas_corriente.get(account_id).toString();
-            cuenta = generator.genAccount(account_id, auxiliar);
-            return cuenta;
+        if (isOrdinary_Account(account_id)){
+            account_data = this.diccionario_cuentas_corriente.get(account_id).toString();
+            return account_data;
         }
         
         return null;
