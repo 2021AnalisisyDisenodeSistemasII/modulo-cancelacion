@@ -27,8 +27,6 @@ public class Controlador implements Initializable{
     
     @FXML
     public void handleButtonAction(ActionEvent event) throws ParseException{
-
-        //System.out.println(textFieldValidar.getText());
         
         AccountsBox.getChildren().remove(0, AccountsBox.getChildren().size());
         
@@ -36,7 +34,8 @@ public class Controlador implements Initializable{
             
             Natural_Client cliente_natural = new Natural_Client();
             
-            cliente_natural = banco.getCliente_Natural(textFieldValidar.getText());
+            cliente_natural = servidor.getCliente_Natural(textFieldValidar.getText());            
+            
             label_ID.setText(cliente_natural.getClient_id());
             label_Nombre.setText(cliente_natural.getClient_name());
             label_Telefono.setText(cliente_natural.getPhone());
@@ -44,16 +43,16 @@ public class Controlador implements Initializable{
             label_Direccion.setText(cliente_natural.getClient_address());
             label_Nombre_Empresa.setText("No aplica");
             label_Sector_Comercial.setText("No aplica");
-            //
-            System.out.println(Arrays.toString(cliente_natural.getAccounts()));
-            //
+
             mostrarCuentas(cliente_natural.getAccounts());
+            
         }
         if (banco.isCompany_Client(textFieldValidar.getText())){
             
             Company_Client cliente_empresa = new Company_Client();
             
-            cliente_empresa = banco.getCliente_Empresa(textFieldValidar.getText());
+            cliente_empresa = servidor.getCliente_Compania(textFieldValidar.getText());
+            
             label_ID.setText(cliente_empresa.getClient_id());
             label_Nombre.setText(cliente_empresa.getClient_name());
             label_Telefono.setText(cliente_empresa.getPhone());
@@ -61,7 +60,9 @@ public class Controlador implements Initializable{
             label_Direccion.setText(cliente_empresa.getClient_address());
             label_Nombre_Empresa.setText(cliente_empresa.getCompany_name());
             label_Sector_Comercial.setText(cliente_empresa.getCluster());
+            
             mostrarCuentas(cliente_empresa.getAccounts());
+            
         }
         
     }

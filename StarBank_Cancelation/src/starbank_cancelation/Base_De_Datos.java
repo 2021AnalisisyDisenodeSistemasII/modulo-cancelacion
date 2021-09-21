@@ -109,24 +109,6 @@ public class Base_De_Datos {
         this.diccionario_cuentas_corriente = gson.fromJson(json, HashMap.class);
         
     }
-    
-    public Natural_Client getCliente_Natural(String client_id){
-        
-        String auxiliar = this.diccionario_clientes_naturales.get(client_id).toString();
-        Class_Generator generator = new Class_Generator();
-        Natural_Client cliente = generator.genNaturalClient(client_id, auxiliar);
-        
-        return cliente;
-    }
-    
-    public Company_Client getCliente_Empresa(String nit){
-        
-        String auxiliar = this.diccionario_clientes_empresa.get(nit).toString();
-        Class_Generator generator = new Class_Generator();
-        Company_Client cliente = generator.genCompanyClient(nit, auxiliar);
-        
-        return cliente;
-    }
 
     public String get_Info_Cliente(String client_id){
         

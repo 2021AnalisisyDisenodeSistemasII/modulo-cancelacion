@@ -31,8 +31,6 @@ public class Ordinary_Account_JSON_Builder implements Account_Builder{
         
         String[] data_splited;
         data_splited = aux_string.split(",");
-
-        List<String> lista = new ArrayList<>();
         
         int reading_slot = 0;
         String[] auxArray;
