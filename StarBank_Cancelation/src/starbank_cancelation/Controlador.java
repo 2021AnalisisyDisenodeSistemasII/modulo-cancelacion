@@ -44,6 +44,9 @@ public class Controlador implements Initializable{
             label_Direccion.setText(cliente_natural.getClient_address());
             label_Nombre_Empresa.setText("No aplica");
             label_Sector_Comercial.setText("No aplica");
+            //
+            System.out.println(Arrays.toString(cliente_natural.getAccounts()));
+            //
             mostrarCuentas(cliente_natural.getAccounts());
         }
         if (banco.isCompany_Client(textFieldValidar.getText())){

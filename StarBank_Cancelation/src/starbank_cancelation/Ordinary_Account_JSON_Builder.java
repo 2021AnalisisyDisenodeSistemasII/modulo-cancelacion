@@ -111,7 +111,7 @@ public class Ordinary_Account_JSON_Builder implements Account_Builder{
     }
     
     @Override
-    public Account get_Account() {
+    public Ordinary_Account get_Account() {
         return this.cuenta;
     }
     

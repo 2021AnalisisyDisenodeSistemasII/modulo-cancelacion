@@ -128,6 +128,23 @@ public class Base_De_Datos {
         return cliente;
     }
 
+    public String get_Info_Cliente(String client_id){
+        
+        String client_data;
+        
+        if (isNatural_Client(client_id)){
+            client_data = this.diccionario_clientes_naturales.get(client_id).toString();
+            return client_data;
+        }
+        if (isCompany_Client(client_id)){
+            client_data = this.diccionario_clientes_empresa.get(client_id).toString();
+            return client_data;
+        }
+        
+        return null;
+        
+    }
+    
     public String get_Info_Cuenta(String account_id) throws ParseException{
         
         String account_data;
@@ -142,6 +159,7 @@ public class Base_De_Datos {
         }
         
         return null;
+        
     }
     
     public boolean isNatural_Client(String client_id){

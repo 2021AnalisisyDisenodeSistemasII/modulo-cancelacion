@@ -81,8 +81,8 @@ public class Saving_Account_JSON_Builder implements Account_Builder {
     }
 
     @Override
-    public void Build_client_id(String id) {
-        this.cuenta.setClient_id(id);
+    public void Build_client_id(String client_id) {
+        this.cuenta.setClient_id(client_id);
     }
 
     @Override
@@ -111,7 +111,7 @@ public class Saving_Account_JSON_Builder implements Account_Builder {
     }
     
     @Override
-    public Account get_Account() {
+    public Saving_Account get_Account() {
         return this.cuenta;
     }
     

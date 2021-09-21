@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Company_Client extends Client{
     
     private String nit;
-    
     private String company_name;
     private String cluster;
 
