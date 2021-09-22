@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 //import javafx.scene.image.ImageView;
 
 
-public class Controlador implements Initializable{
+public class Controller implements Initializable{
     
     private BankServer banco = new BankServer();
     
