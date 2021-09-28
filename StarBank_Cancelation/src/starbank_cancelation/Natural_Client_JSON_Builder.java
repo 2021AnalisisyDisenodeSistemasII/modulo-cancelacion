@@ -47,19 +47,16 @@ public class Natural_Client_JSON_Builder implements Client_Builder{
             reading_slot ++;
             
         }
-        
-        //Eliminando los [] de la primer y ultima cuenta
+
         lista_cuentas.set(0, lista_cuentas.get(0).replace("[", ""));
         lista_cuentas.set(lista_cuentas.size()-1, lista_cuentas.get(lista_cuentas.size()-1).replace("]", ""));
         
-        //Reemplazando los espacios fantasmas en los strings
         int aux = 0;
         while (aux < lista_cuentas.size()){
             lista_cuentas.set(aux, lista_cuentas.get(aux).replace(" ", ""));
             aux ++;
         }
         
-        //Llenando el Array de String con las cuentas
         accounts = new String[lista_cuentas.size()];
         for(int i = 0; i < lista_cuentas.size();i++){
             accounts[i] = lista_cuentas.get(i);
@@ -80,19 +77,18 @@ public class Natural_Client_JSON_Builder implements Client_Builder{
         reading_slot ++;
         
         String direccion;
+        
         auxArray = data_splited[reading_slot].split("=");
         direccion = auxArray[1];
-        //Build_client_address(auxArray[1]);
+        
         reading_slot ++;
         
-        if(data_splited[reading_slot] != null){
+        if(data_splited.length != reading_slot){
             direccion = direccion + data_splited[reading_slot];
+            reading_slot ++;
         }
         
-        direccion.replace("}", "");
-        
-        Build_client_address(direccion);
-        reading_slot ++;
+        Build_client_address(direccion.replace("}", ""));
         
     }
     

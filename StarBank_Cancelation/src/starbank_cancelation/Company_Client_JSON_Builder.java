@@ -79,19 +79,18 @@ public class Company_Client_JSON_Builder implements Client_Builder{
         reading_slot ++;
         
         String direccion;
+        
         auxArray = data_splited[reading_slot].split("=");
         direccion = auxArray[1];
-        //Build_client_address(auxArray[1]);
+        
         reading_slot ++;
         
         if(data_splited[reading_slot].contains("client_id") == false){
             direccion = direccion + data_splited[reading_slot];
+            reading_slot ++;
         }
         
-        direccion.replace("}", "");
-        
-        Build_client_address(direccion);
-        reading_slot ++;
+        Build_client_address(direccion.replace("}", ""));
         
         auxArray = data_splited[reading_slot].split("=");
         Build_client_id(auxArray[1]);
@@ -100,9 +99,9 @@ public class Company_Client_JSON_Builder implements Client_Builder{
         auxArray = data_splited[reading_slot].split("=");
         Build_company_name(auxArray[1]);
         reading_slot ++;
-        
+
         auxArray = data_splited[reading_slot].split("=");
-        Build_cluster(auxArray[1]);
+        Build_cluster(auxArray[1].replace("}", ""));
         reading_slot ++;
         
     }

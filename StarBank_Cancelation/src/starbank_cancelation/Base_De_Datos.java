@@ -17,97 +17,24 @@ public class Base_De_Datos {
     private HashMap diccionario_cuentas_ahorros;
     private HashMap diccionario_cuentas_corriente;
     
+    private final String direccion_clientes_naturales
+            = "JSON/natural_clients.json";
+    private final String direccion_clientes_empresa
+            = "JSON/company_clients.json";
+    
+    private final String direccion_cuentas_ahorros
+            = "JSON/saving_accounts.json";
+    private final String direccion_cuentas_corriente
+            = "JSON/current_accounts.json";
+    
     public Base_De_Datos(){
         
-        cargarClientes_Naturales();
-        cargarClientes_Empresa();
-        cargarCuentas_Ahorros();
-        cargarCuentas_Corriente();
+        diccionario_clientes_naturales = new HashMap_JSON_Loader().create(direccion_clientes_naturales);
+        diccionario_clientes_empresa = new HashMap_JSON_Loader().create(direccion_clientes_empresa);
         
-    }
+        diccionario_cuentas_ahorros = new HashMap_JSON_Loader().create(direccion_cuentas_ahorros);
+        diccionario_cuentas_corriente = new HashMap_JSON_Loader().create(direccion_cuentas_corriente);
     
-    private void cargarClientes_Naturales(){
-        
-        String json = "";
-        
-        try (BufferedReader br = new BufferedReader(new FileReader("JSON/natural_clients.json"))){
-            String line;
-            while ((line = br.readLine()) != null) {
-                json+= line;
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-        
-        this.diccionario_clientes_naturales = gson.fromJson(json, HashMap.class);
-        
-    }
-    
-    private void cargarClientes_Empresa(){
-        
-        String json = "";
-        
-        try (BufferedReader br = new BufferedReader(new FileReader("JSON/company_clients.json"))){
-            String line;
-            while ((line = br.readLine()) != null) {
-                json+= line;
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-        
-        this.diccionario_clientes_empresa = gson.fromJson(json, HashMap.class);
-        
-    }
-    
-    private void cargarCuentas_Ahorros(){
-        
-        String json = "";
-        
-        try (BufferedReader br = new BufferedReader(new FileReader("JSON/saving_accounts.json"))){
-            String line;
-            while ((line = br.readLine()) != null) {
-                json+= line;
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-        
-        this.diccionario_cuentas_ahorros = gson.fromJson(json, HashMap.class);
-        
-    }
-    
-    private void cargarCuentas_Corriente(){
-        
-        String json = "";
-        
-        try (BufferedReader br = new BufferedReader(new FileReader("JSON/current_accounts.json"))){
-            String line;
-            while ((line = br.readLine()) != null) {
-                json+= line;
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-        
-        this.diccionario_cuentas_corriente = gson.fromJson(json, HashMap.class);
-        
     }
 
     public String get_Info_Cliente(String client_id){
