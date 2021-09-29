@@ -64,18 +64,18 @@ public class Company_Client_JSON_Builder implements Client_Builder{
             accounts[i] = lista_cuentas.get(i);
         }
         
-        Build_accounts(accounts);
+        Set_accounts(accounts);
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_phone(auxArray[1]);
+        Set_phone(auxArray[1]);
         reading_slot ++;
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_client_name(auxArray[1]);
+        Set_client_name(auxArray[1]);
         reading_slot ++;
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_client_occupation(auxArray[1]);
+        Set_client_occupation(auxArray[1]);
         reading_slot ++;
         
         String direccion;
@@ -90,18 +90,18 @@ public class Company_Client_JSON_Builder implements Client_Builder{
             reading_slot ++;
         }
         
-        Build_client_address(direccion.replace("}", ""));
+        Set_client_address(direccion.replace("}", ""));
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_client_id(auxArray[1]);
+        Set_client_id(auxArray[1]);
         reading_slot ++;
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_company_name(auxArray[1]);
+        Set_company_name(auxArray[1]);
         reading_slot ++;
 
         auxArray = data_splited[reading_slot].split("=");
-        Build_cluster(auxArray[1].replace("}", ""));
+        Set_cluster(auxArray[1].replace("}", ""));
         reading_slot ++;
         
     }
@@ -112,44 +112,44 @@ public class Company_Client_JSON_Builder implements Client_Builder{
     }
 
     @Override
-    public void Build_client_id(String client_id) {
+    public void Set_client_id(String client_id) {
         this.cliente.setClient_id(client_id);
     }
 
     @Override
-    public void Build_accounts(String[] accounts) {
+    public void Set_accounts(String[] accounts) {
         this.cliente.setAccounts(accounts);
     }
 
     @Override
-    public void Build_phone(String phone) {
+    public void Set_phone(String phone) {
         this.cliente.setPhone(phone);
     }
 
     @Override
-    public void Build_client_name(String client_name) {
+    public void Set_client_name(String client_name) {
         this.cliente.setClient_name(client_name);
     }
 
     @Override
-    public void Build_client_occupation(String client_occupation) {
+    public void Set_client_occupation(String client_occupation) {
         this.cliente.setClient_occupation(client_occupation);
     }
 
     @Override
-    public void Build_client_address(String client_address) {
+    public void Set_client_address(String client_address) {
         this.cliente.setClient_address(client_address);
     }
 
-    public void Build_nit(String nit) {
+    public void Set_nit(String nit) {
         this.cliente.setNit(nit);
     }
     
-    public void Build_company_name(String company_name) {
+    public void Set_company_name(String company_name) {
         this.cliente.setCompany_name(company_name);
     }
     
-    public void Build_cluster(String cluster) {
+    public void Set_cluster(String cluster) {
         this.cliente.setCluster(cluster);
     }
     

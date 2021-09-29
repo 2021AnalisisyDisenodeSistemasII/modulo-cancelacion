@@ -8,9 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class StarBank_Cancelation extends Application{
-    
-//    private final BankServer Banco = new BankServer();
-    
+
     @Override
     public void init() throws ParseException{
 

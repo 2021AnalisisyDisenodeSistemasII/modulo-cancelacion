@@ -5,14 +5,14 @@ import java.util.Date;
 
 public abstract class Account {
     
-    private String account_id;
+    protected String account_id;
     
-    private String client_id;
-    private Float balance;
-    private Boolean isActive;
-    private String suc_id;
-    private String[] transactions;
-    private Date creation_date;
+    protected String client_id;
+    protected Float balance;
+    protected Boolean isActive;
+    protected String suc_id;
+    protected String[] transactions;
+    protected Date creation_date;
     
     public Account(String account_id, String client_id, Float balance, Boolean isActive, String suc_id, String[] transactions, Date creation_date) {
         this.account_id = account_id;

@@ -36,24 +36,24 @@ public class Ordinary_Account_JSON_Builder implements Account_Builder{
         String[] auxArray;
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_isActive(Boolean.parseBoolean(auxArray[1]));
+        Set_isActive(Boolean.parseBoolean(auxArray[1]));
         reading_slot ++;
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_client_id(auxArray[1]);
+        Set_client_id(auxArray[1]);
         reading_slot ++;
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_balance(Float.parseFloat(auxArray[1]));
+        Set_balance(Float.parseFloat(auxArray[1]));
         reading_slot ++;
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_suc_id(auxArray[1]);
+        Set_suc_id(auxArray[1]);
         reading_slot ++;
         
         String[] transactions;
         transactions = new String[0];
-        Build_transactions(transactions);
+        Set_transactions(transactions);
         while(data_splited[reading_slot+1].contains("creation_date") == false){
             
             //IMPLEMENTACION PENDIENTE
@@ -63,7 +63,7 @@ public class Ordinary_Account_JSON_Builder implements Account_Builder{
         reading_slot ++;
         
         auxArray = data_splited[reading_slot].split("=");
-        Build_creation_date(new SimpleDateFormat("dd-MM-yyyy").parse(auxArray[1]));
+        Set_creation_date(new SimpleDateFormat("dd-MM-yyyy").parse(auxArray[1]));
         reading_slot ++;
         
     }
@@ -74,37 +74,37 @@ public class Ordinary_Account_JSON_Builder implements Account_Builder{
     }
 
     @Override
-    public void Build_account_id(String account_id) {
+    public void Set_account_id(String account_id) {
         this.cuenta.setAccount_id(account_id);
     }
 
     @Override
-    public void Build_client_id(String id) {
+    public void Set_client_id(String id) {
         this.cuenta.setClient_id(id);
     }
 
     @Override
-    public void Build_balance(Float balance) {
+    public void Set_balance(Float balance) {
         this.cuenta.setBalance(balance);
     }
 
     @Override
-    public void Build_isActive(Boolean status) {
+    public void Set_isActive(Boolean status) {
         this.cuenta.setIsActive(status);
     }
 
     @Override
-    public void Build_suc_id(String sucursal_id) {
+    public void Set_suc_id(String sucursal_id) {
         this.cuenta.setSuc_id(sucursal_id);
     }
 
     @Override
-    public void Build_transactions(String[] transactions) {
+    public void Set_transactions(String[] transactions) {
         this.cuenta.setTransactions(transactions);
     }
 
     @Override
-    public void Build_creation_date(Date creation_date) {
+    public void Set_creation_date(Date creation_date) {
         this.cuenta.setCreation_date(creation_date);
     }
     
