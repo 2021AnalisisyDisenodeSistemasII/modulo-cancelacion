@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -12,23 +15,31 @@
 
 <Pane maxHeight="720.0" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="starbank_cancelation.Controlador">
    <children>
+      <ImageView fx:id="backgroundImg" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Background.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.3" contrast="0.1" />
+         </effect>
+      </ImageView>
       <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
             <VBox prefHeight="150.0" prefWidth="100.0">
                <children>
-                  <Label alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" text="STARBANK">
+                  <Label alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" text="STARBANK" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="TU BANCO ESTRELLA">
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="TU BANCO ESTRELLA" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                   <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="50.0">
                      <children>
-                        <Label fx:id="label" prefHeight="40.0" text="Ingrese su ID:">
+                        <Label fx:id="label" prefHeight="40.0" text="Ingrese su ID:" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -40,10 +51,13 @@
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
-                        </TextField>
-                        <Button mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="70.0" text="Validar" textAlignment="CENTER">
                            <font>
-                              <Font size="15.0" />
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="86.0" text="Validar" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -55,16 +69,35 @@
             </VBox>
             <HBox prefHeight="570.0" prefWidth="1280.0">
                <children>
-                  <VBox prefWidth="640.0">
+                  <VBox alignment="TOP_CENTER" prefWidth="640.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Cliente ID:" HBox.hgrow="NEVER">
+                              <Label text="Cliente ID:" textFill="WHITE" HBox.hgrow="NEVER">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="label_ID" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                              <Label fx:id="label_ID" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding></Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Nombre:" textFill="WHITE" HBox.hgrow="NEVER">
+                                 <font>
+                                    <Font name="System Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="label_Nombre" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -75,12 +108,12 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Nombre:" HBox.hgrow="NEVER">
+                              <Label text="Telefono:" textFill="WHITE" HBox.hgrow="NEVER">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="label_Nombre" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                              <Label fx:id="label_Telefono" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -91,12 +124,12 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Telefono:" HBox.hgrow="NEVER">
+                              <Label text="Ocupación:" textFill="WHITE" HBox.hgrow="NEVER">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="label_Telefono" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                              <Label fx:id="label_Ocupacion" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -107,12 +140,12 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Ocupación:" HBox.hgrow="NEVER">
+                              <Label text="Dirección:" textFill="WHITE" HBox.hgrow="NEVER">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="label_Ocupacion" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                              <Label fx:id="label_Direccion" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -123,12 +156,12 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Dirección:" HBox.hgrow="NEVER">
+                              <Label text="Nombre de empresa:" textFill="WHITE" HBox.hgrow="NEVER">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="label_Direccion" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                              <Label fx:id="label_Nombre_Empresa" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -139,28 +172,12 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Nombre de empresa:" HBox.hgrow="NEVER">
+                              <Label text="Sector comercial:" textFill="WHITE" HBox.hgrow="NEVER">
                                  <font>
                                     <Font name="System Bold Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="label_Nombre_Empresa" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="5.0" />
-                                 </padding></Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Sector comercial:" HBox.hgrow="NEVER">
-                                 <font>
-                                    <Font name="System Bold Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="label_Sector_Comercial" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                              <Label fx:id="label_Sector_Comercial" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -171,12 +188,15 @@
                         </HBox>
                      </children>
                      <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="40.0" left="20.0" right="20.0" top="40.0" />
                      </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefWidth="640.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="640.0" text="Sus cuentas son:">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="640.0" text="Sus cuentas son:" textFill="WHITE">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
@@ -184,15 +204,21 @@
                               <Insets left="10.0" right="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="535.0" prefWidth="620.0">
+                        <ScrollPane fitToHeight="true" focusTraversable="false" hbarPolicy="NEVER" opacity="0.65">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" />
                            </VBox.margin>
                            <content>
                               <VBox fx:id="AccountsBox" maxHeight="1.7976931348623157E308" prefHeight="530.0" prefWidth="600.0" />
                            </content>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
                         </ScrollPane>
                      </children>
+                     <padding>
+                        <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
                   </VBox>
                </children>
             </HBox>

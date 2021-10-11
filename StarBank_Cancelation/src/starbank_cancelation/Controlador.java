@@ -9,12 +9,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class Controlador implements Initializable{
     
-    private Base_De_Datos banco = new Base_De_Datos();
     private Servidor_Banco servidor = new Servidor_Banco();
+    private Base_De_Datos banco = new Base_De_Datos();
     
     @FXML
     private Label label_ID, label_Nombre, label_Telefono, label_Ocupacion, label_Direccion, label_Nombre_Empresa, label_Sector_Comercial;
@@ -24,6 +25,9 @@ public class Controlador implements Initializable{
     
     @FXML
     private VBox AccountsBox;
+    
+    @FXML
+    private ImageView backgroundImg;
     
     @FXML
     public void handleButtonAction(ActionEvent event) throws ParseException{
